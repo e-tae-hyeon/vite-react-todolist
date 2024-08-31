@@ -1,3 +1,4 @@
+import Placeholder from "components/Placeholder";
 import TodoItem from "components/TodoItem";
 import useTodosStore from "stores/useTodosStore";
 import styled from "styled-components";
@@ -14,9 +15,15 @@ function TodoList() {
       </Header>
 
       <Main>
-        {todos.map((todo) => (
-          <TodoItem todo={todo} key={todo.id} />
-        ))}
+        {todos.length > 0 ? (
+          <>
+            {todos.map((todo) => (
+              <TodoItem todo={todo} key={todo.id} />
+            ))}
+          </>
+        ) : (
+          <Placeholder message="할 일을 추가해보세요" />
+        )}
       </Main>
     </Root>
   );
