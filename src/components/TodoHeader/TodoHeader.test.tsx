@@ -1,7 +1,7 @@
 import { it, describe } from "vitest";
-import { render, screen } from "@testing-library/react";
 import TodoHeader from ".";
 import DateUtil from "../../utils/DateUtil";
+import { render, screen } from "utils/renderWithTheme";
 
 describe("TodoHeader", () => {
   it("renders successfully", () => {
