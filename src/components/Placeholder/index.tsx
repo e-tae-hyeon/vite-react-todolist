@@ -15,8 +15,7 @@ function Placeholder({ message }: PlaceholderProps) {
 export default Placeholder;
 
 const Root = styled.div`
-  position: absolute;
-  inset: 0;
+  padding-top: 30%;
   display: flex;
   justify-content: center;
   align-items: center;
