@@ -2,13 +2,14 @@ import styled, { useTheme } from "styled-components";
 import DateUtil from "../../utils/DateUtil";
 import { ChangeEventHandler, FormEventHandler, useState } from "react";
 import Icon from "../Icon";
-import TodoStorage from "storages/todoStorage";
+import useTodosStore from "stores/useTodosStore";
 
 function TodoHeader() {
   const theme = useTheme();
 
   const today = DateUtil.nowFormat();
 
+  const upsertTodo = useTodosStore((s) => s.upsertTodo);
   const [name, setName] = useState("");
 
   const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
@@ -20,7 +21,7 @@ function TodoHeader() {
 
     if (!name) return;
 
-    TodoStorage.upsertTodo({
+    upsertTodo({
       name,
     });
 
